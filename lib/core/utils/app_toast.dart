@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class AppToast {
-  /*static Future<bool?> showToastWidget(
+  static Future<bool?> showToastWidget(
       String message,
       Color backgroundColor,
       Color textColor,
@@ -15,5 +16,5 @@ class AppToast {
         textColor: textColor,
         fontSize: 16.0
     );
-  }*/
+  }
 }
