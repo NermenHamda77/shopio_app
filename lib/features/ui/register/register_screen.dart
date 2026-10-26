@@ -140,7 +140,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
                       CustomElevatedButton(
                           title: Text("Sign Up", style: AppStyles.semi20PrimaryOpacity,),
-                          onPressed: (){},
+                          onPressed: (){
+                            Navigator.of(context).pushNamed(AppRoutes.homeRoute);
+
+                          },
                           backgroundColor: AppColors.whiteColor
                       )
 
@@ -156,8 +159,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   children: [
                     Text("Already have an account?", style: AppStyles.regular18White,),
                     TextButton(onPressed: (){
-                      Navigator.of(context).pushNamed(AppRoutes.registerRoute);
-                    }, child: Text("Login", style: AppStyles.regular18White),),
+                      Navigator.of(context).pushNamed(AppRoutes.loginRoute);
+                    }, child: Text("Login ", style: AppStyles.regular18White.copyWith(
+                      color: AppColors.babyBlueColor
+                    )),),
 
                   ],
                 ),

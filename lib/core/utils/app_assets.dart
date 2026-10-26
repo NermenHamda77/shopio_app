@@ -12,4 +12,8 @@ class AppAssets {
   static const String babyImg = "assets/images/baby.png" ;
   static const String logoImg = "assets/images/splash_logo.png" ;
   static const String shopioLogoImg = "assets/images/shopio_logo.png" ;
+  static const String cartIconImg = "assets/images/cart.png" ;
+  static const String searchIconImg = "assets/images/search.png" ;
+  static const String cartAddIconImg = "assets/images/cart_icon.png" ;
+
 }

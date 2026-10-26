@@ -43,6 +43,39 @@ class AppStyles {
     fontSize: 20,
     color: AppColors.primaryColor,
   );
+
+
+  // hint search
+  static final TextStyle light14PrimaryDarkLight = GoogleFonts.poppins(
+
+    fontWeight: FontWeight.w300,
+    fontSize: 16,
+    color: AppColors.primaryDarkLightColor,
+  );
+
+  // main category
+  static final TextStyle medium18PrimaryDark = GoogleFonts.poppins(
+
+    fontWeight: FontWeight.w500,
+    fontSize: 18,
+    color: AppColors.primaryDarkColor,
+  );
+
+  // sub category
+  static final TextStyle regular14PrimaryDark = GoogleFonts.poppins(
+
+    fontWeight: FontWeight.w400,
+    fontSize: 14,
+    color: AppColors.primaryDarkColor,
+  );
+
+  // view all
+  static final TextStyle regular12PrimaryDark = GoogleFonts.poppins(
+
+    fontWeight: FontWeight.w400,
+    fontSize: 12,
+    color: AppColors.primaryDarkColor,
+  );
 }
 
 /*

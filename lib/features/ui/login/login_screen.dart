@@ -140,7 +140,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         child: Text("Don’t have an account?", style: AppStyles.regular18White,)),
                     TextButton(onPressed: (){
                       Navigator.of(context).pushNamed(AppRoutes.registerRoute);
-                    }, child: Text("Create Account", style: AppStyles.regular18White,)),
+                    }, child: Text("Create Account", style: AppStyles.regular18White.copyWith(
+                        color: AppColors.babyBlueColor
+                    ))),
 
                   ],
                 ),
