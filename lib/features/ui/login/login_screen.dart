@@ -85,7 +85,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         validator: (text) {
                           return null;
                         },
-                        controller: usernameController,
+                        controller: passwordController,
                         borderColor: AppColors.transparentColor,
                         hintText: "enter your password",
                         hintStyle: AppStyles.light16HintColor,
