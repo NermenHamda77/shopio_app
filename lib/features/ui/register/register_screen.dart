@@ -1,4 +1,6 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../core/utils/app_assets.dart';
 import '../../../core/utils/app_colors.dart';
@@ -24,6 +26,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
   var formKey = GlobalKey<FormState>();
 
   bool hidePassword = true;
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    fullNameController.dispose();
+    mobileController.dispose();
+    passwordController.dispose();
+    emailController.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,29 +43,33 @@ class _RegisterScreenState extends State<RegisterScreen> {
       body: SingleChildScrollView(
         child: SafeArea(
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+            padding:  EdgeInsets.symmetric(horizontal: 16.w),
+
             child: Column(
-              spacing: 5,
+              //spacing: 5,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Center(
+                Padding(
+                  padding:  EdgeInsets.symmetric(
+                      vertical: 40.h , horizontal: 97.w
+                  ),
                   child: Image.asset(
                     AppAssets.shopioLogoImg,
                     fit: BoxFit.fitWidth,
-                    width: 250,
+                    width: 250.w,
                     alignment: AlignmentGeometry.center,
                   ),
                 ),
-
-                SizedBox(height: 20,),
+               // SizedBox(height: 30.h,),
                 Form(
                   key: formKey,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
-                    spacing: 18,
+                    spacing: 18.h,
                     children: [
-                      Text(
+                      AutoSizeText(
                         "Full Name",
+                        maxLines: 1,
                         style: AppStyles.medium18White,
                       ),
                       CustomTextField(
@@ -70,8 +85,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
                       ),
 
-                      Text(
+                      AutoSizeText(
                         "Mobile Number",
+                        maxLines: 1,
                         style: AppStyles.medium18White,
                       ),
                       CustomTextField(
@@ -87,8 +103,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
                       ),
                       //SizedBox(height: 8,),
-                      Text(
+                      AutoSizeText(
                         "E-mail address",
+                        maxLines: 1,
                         style: AppStyles.medium18White,
                       ),
                       CustomTextField(
@@ -105,8 +122,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       ),
 
 
-                      Text(
+                      AutoSizeText(
                         "Password",
+                        maxLines: 1,
                         style: AppStyles.medium18White,
                       ),
                       CustomTextField(
@@ -135,11 +153,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         ),
 
                       ),
-                      SizedBox(height: 20,),
+                      SizedBox(height: 20.h,),
 
 
                       CustomElevatedButton(
-                          title: Text("Sign Up", style: AppStyles.semi20PrimaryOpacity,),
+                          title: AutoSizeText(
+                            "Sign Up",
+                            maxLines: 1,
+                            style: AppStyles.semi20PrimaryOpacity,),
                           onPressed: (){
                             Navigator.of(context).pushNamed(AppRoutes.homeRoute);
 
@@ -157,10 +178,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   //spacing: 5,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text("Already have an account?", style: AppStyles.regular18White,),
+                    AutoSizeText(
+                      "Already have an account?",
+                      maxLines: 1,
+                      style: AppStyles.regular18White,),
                     TextButton(onPressed: (){
                       Navigator.of(context).pushNamed(AppRoutes.loginRoute);
-                    }, child: Text("Login ", style: AppStyles.regular18White.copyWith(
+                    }, child: AutoSizeText(
+                        "Login ",
+                        maxLines: 1,
+                        style: AppStyles.regular18White.copyWith(
                       color: AppColors.babyBlueColor
                     )),),
 

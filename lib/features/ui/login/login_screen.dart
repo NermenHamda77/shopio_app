@@ -1,4 +1,6 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shopio_app/core/utils/app_colors.dart';
 import 'package:shopio_app/core/utils/app_routes.dart';
 import 'package:shopio_app/core/utils/app_styles.dart';
@@ -22,45 +24,58 @@ class _LoginScreenState extends State<LoginScreen> {
   var formKey = GlobalKey<FormState>();
 
   bool hidePassword = true;
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    usernameController.dispose();
+    passwordController.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.primaryColor,
-      body: SingleChildScrollView(
-        child: SafeArea(
+      body: SafeArea(
+        child: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+            padding:  EdgeInsets.symmetric(horizontal: 16.w),
             child: Column(
-              spacing: 5,
+             // spacing: 5,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Center(
+                Padding(
+                  padding:  EdgeInsets.symmetric(
+                    vertical: 40.h , horizontal: 97.w
+                  ),
                   child: Image.asset(
                     AppAssets.shopioLogoImg,
                     fit: BoxFit.fitWidth,
-                    width: 250,
+                    width: 250.w,
                     alignment: AlignmentGeometry.center,
                   ),
                 ),
-                SizedBox(height: 30,),
-                Text(
+                SizedBox(height: 30.h,),
+                AutoSizeText(
                   "Welcome Back To Shopio",
+                  maxLines: 1,
                   style: AppStyles.semi24White,
                 ),
-                Text(
+                AutoSizeText(
                   "Please sign in with your mail",
+                  maxLines: 1,
                   style: AppStyles.light16White,
                 ),
-                SizedBox(height: 20,),
+                SizedBox(height: 20.h,),
                 Form(
                   key: formKey,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
-                    spacing: 18,
+                    spacing: 16.h,
                     children: [
-                      Text(
+                      AutoSizeText(
                         "User Name",
+                        maxLines: 1,
                         style: AppStyles.medium18White,
                       ),
                       CustomTextField(
@@ -77,8 +92,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       //SizedBox(height: 8,),
 
-                      Text(
+                      AutoSizeText(
                         "Password",
+                        maxLines: 1,
                         style: AppStyles.medium18White,
                       ),
                       CustomTextField(
@@ -113,7 +129,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         child: TextButton(
                           onPressed: (){
                           },
-                          child: Text("Forget Password?" ,
+                          child: AutoSizeText("Forget Password?" ,
                           style: AppStyles.regular18White,
                           textAlign: TextAlign.end,
                           ),
@@ -129,7 +145,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ],
                   ),
                 ),
-                SizedBox(height: 4,),
+                SizedBox(height: 4.h,),
 
 
                 Row(
@@ -137,12 +153,25 @@ class _LoginScreenState extends State<LoginScreen> {
                   children: [
                     Expanded(
                       flex: 3,
-                        child: Text("Don’t have an account?", style: AppStyles.regular18White,)),
-                    TextButton(onPressed: (){
-                      Navigator.of(context).pushNamed(AppRoutes.registerRoute);
-                    }, child: Text("Create Account", style: AppStyles.regular18White.copyWith(
-                        color: AppColors.babyBlueColor
-                    ))),
+                      child: AutoSizeText(
+                        "Don’t have an account?",
+                        maxLines: 1,
+                        style: AppStyles.regular18White,
+                      ),
+                    ),
+                    Expanded(
+                      flex: 2,
+                      child: TextButton(onPressed: (){
+                        Navigator.of(context).pushNamed(AppRoutes.registerRoute);
+                      }, child: AutoSizeText(
+                          "Create Account",
+                          style: AppStyles.regular18White.copyWith(
+                          color: AppColors.babyBlueColor
+                      ),
+                        maxLines: 1,
+                      )
+                      ),
+                    ),
 
                   ],
                 ),
